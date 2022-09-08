@@ -15,4 +15,5 @@ public class ClientMain extends Application {
         Menu.stage = primaryStage;
     SignUpMenu.getInstance().run();
     }
+
 }
