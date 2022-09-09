@@ -25,6 +25,9 @@ public class User {
         this.gender = gender;
         this.bio = bio;
     }
+    public User (){
+
+    }
 
     public int getId() {
         return id;

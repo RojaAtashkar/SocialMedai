@@ -58,21 +58,10 @@
             </Text>
             <Text layoutX="55.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="if you  already have an account login " />
             <Button fx:id="loginButton" layoutX="250.0" layoutY="314.0" mnemonicParsing="false" onAction="#logInMenu" style="-fx-background-color: #636566;" text="login" />
-            <Button layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#runSignInWithEmail" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="next" textFill="WHITE" />
+            <Button layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#nextSignInWithEmail" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="next" textFill="WHITE" />
             <Button fx:id="cancelButton" layoutX="54.0" layoutY="442.0" mnemonicParsing="false" onAction="#cancel" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="Cancel" textFill="WHITE" />
-            <Button layoutX="54.0" layoutY="394.0" mnemonicParsing="false" onAction="#runScene1" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="back" textFill="WHITE" />
-            <VBox layoutX="55.0" layoutY="113.0" prefHeight="87.0" prefWidth="138.0">
-               <children>
-                  <Label text="user type" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="simpleRadioButton" mnemonicParsing="false" onAction="#setType" selected="true" text="simple" />
-                  <RadioButton fx:id="businessRadioButton" mnemonicParsing="false" onAction="#setType" text="business" />
-               </children>
-            </VBox>
-            <VBox layoutX="57.0" layoutY="191.0" prefHeight="78.0" prefWidth="132.0">
+            <Button layoutX="54.0" layoutY="394.0" mnemonicParsing="false" onAction="#backScene1" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="back" textFill="WHITE" />
+            <VBox layoutX="44.0" layoutY="159.0" prefHeight="78.0" prefWidth="132.0">
                <children>
                   <Label text="gender" textFill="WHITE">
                      <font>
@@ -80,7 +69,8 @@
                      </font>
                   </Label>
                   <RadioButton fx:id="femaleRadioButton" mnemonicParsing="false" onAction="#setGender" selected="true" text="Female" />
-                  <RadioButton fx:id="maleRadioButton" mnemonicParsing="false" onAction="#setGender" text="Male" />
+                  <RadioButton fx:id="maleRadioButton" mnemonicParsing="false"  onAction="#setGender" text="Male" />
+                  <RadioButton fx:id="otherRadioButton" mnemonicParsing="false"  onAction="#setGender" text="Other" />
                </children>
             </VBox>
             <Button layoutX="225.0" layoutY="113.0" mnemonicParsing="false" onAction="#setProfileImage" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #636566" text="set Profile picture" />
