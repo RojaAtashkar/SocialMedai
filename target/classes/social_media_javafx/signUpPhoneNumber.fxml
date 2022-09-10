@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RegisterMenu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.SignUpMenu">
    <left>
       <AnchorPane prefHeight="500.0" prefWidth="307.0" style="-fx-background-color: #46474A;" BorderPane.alignment="CENTER">
          <children>
@@ -58,14 +58,14 @@
             <TextField fx:id="phoneNumberTextBox" layoutX="160.0" layoutY="205.0" prefHeight="31.0" prefWidth="181.0" promptText="phone Number" />
             <Text layoutX="55.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="if you  already have an account login " />
             <Button fx:id="loginButton" layoutX="250.0" layoutY="314.0" mnemonicParsing="false" onAction="#logInMenu" style="-fx-background-color: #636566;" text="login" />
-            <Button fx:id="signInButton" layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#signInWithPhoneNumber" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="signIn" textFill="WHITE" />
+            <Button fx:id="signInButton" layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#signUpWithPhoneNumber" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="signIn" textFill="WHITE" />
             <Button fx:id="cancelButton" layoutX="54.0" layoutY="442.0" mnemonicParsing="false" onAction="#cancel" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="Cancel" textFill="WHITE" />
             <Label layoutX="41.0" layoutY="207.0" prefHeight="28.0" prefWidth="130.0" text="phone Number" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="backScene2Button" layoutX="54.0" layoutY="394.0" mnemonicParsing="false" onAction="#runScene2" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="back" textFill="WHITE" />
+            <Button fx:id="backScene2Button" layoutX="54.0" layoutY="394.0" mnemonicParsing="false" onAction="#backScene2" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="back" textFill="WHITE" />
             <Label fx:id="phoneNumberLabel" layoutX="35.0" layoutY="182.0" prefHeight="17.0" prefWidth="315.0" textFill="#ff0909" />
             <Label layoutX="38.0" layoutY="247.0" prefHeight="17.0" prefWidth="231.0" text="sign in with email ? click" />
             <Button layoutX="171.0" layoutY="243.0" mnemonicParsing="false" onAction="#runSignInWithEmail" style="-fx-background-color: #636566;" text="here" />
