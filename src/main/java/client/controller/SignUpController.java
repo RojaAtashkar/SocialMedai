@@ -3,8 +3,11 @@ package client.controller;
 import client.enums.Message;
 import client.model.User;
 
-public class SignUpController {
+import java.sql.ResultSet;
+
+public class SignUpController  extends Controller{
     private static SignUpController instance;
+
     private static void setSignUpController(SignUpController signUpController){
         SignUpController.instance = signUpController;
     }
@@ -24,7 +27,7 @@ public class SignUpController {
             return Message.EMPTY_PASSWORD;
         if (repeatedPassword.isEmpty())
             return Message.EMPTY_REPEATED_PASSWORD;
-        if (this.userIDExist(userID)){
+        if (this.getUserByUserID(userID) != null){
             return Message.USERID_EXIST;
         }
         Message message = this.validatePassword(password, repeatedPassword);
@@ -48,10 +51,7 @@ public class SignUpController {
     public boolean isAlphaNumeric (String password){
         return password.matches("[a-zA-z0-9]+");
     }
-    private boolean userIDExist(String userID){
-        //check with sql
-        return false;
-    }
+
     public Message handleSignUpScene2(String username,String gender, String address, User user) {
         if (username.isEmpty())
             return Message.EMPTY_USERNAME;
@@ -62,14 +62,16 @@ public class SignUpController {
     }
     public Message handleSignInWithEmail(String email, User user) {
         user.setEmail(email);
-        //set data to sgl
+        userDB.createUser(user.getUserId(), user.getUsername(), user.getPassword(),user.getEmail(),user.getImageAddress(),
+        user.getPhoneNumber(), user.getGender(), user.getBio());
         return Message.SUCCESS;
     }
 
     public Message handleSignInWithPhoneNumber(String number, User user) {
         if(isNumeric(number))
             return Message.NON_NUMERIC_PHONE_NUMBER;
-        //set to sql
+        userDB.createUser(user.getUserId(), user.getUsername(), user.getPassword(),user.getEmail(),user.getImageAddress(),
+                user.getPhoneNumber(), user.getGender(), user.getBio());
         return Message.SUCCESS;
     }
     private boolean isNumeric(String number){

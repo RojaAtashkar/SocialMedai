@@ -54,7 +54,7 @@ public class LoginMenu extends Menu {
        if(message == Message.SUCCESS){
            //go to main menu
        }
-       else if (message == Message.EMPTY_USERNAME || message == Message.NON_EXISTENT_USERNAME){
+       else if (message == Message.EMPTY_USERNAME || message == Message.NON_EXISTENT_USERID){
            userIDLabel.setText(message.toString());
        }
        else {

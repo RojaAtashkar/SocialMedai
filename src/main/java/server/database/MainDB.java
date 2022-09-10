@@ -8,7 +8,7 @@ public abstract class MainDB {
 
     protected MainDB() {
         try {
-            connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/social_media_test1", "root", "2581537299");
+            connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/social_media", "root", "2581537299");
             connection.createStatement();
             System.out.println("connection");
         }

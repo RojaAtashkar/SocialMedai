@@ -3,7 +3,9 @@ package server.database;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class UserDB  extends MainDB{
     private static UserDB instance = null;
@@ -19,7 +21,7 @@ public class UserDB  extends MainDB{
         return UserDB.instance;
     }
 
-    private ResultSet getUserById(int id){
+    public ResultSet getUserById(int id){
 
         try{
             Statement statement = connection.createStatement();
@@ -34,7 +36,7 @@ public class UserDB  extends MainDB{
         return null;
     }
 
-    private ResultSet getUserByUserId(String userId){
+    public ResultSet getUserByUserId(String userId){
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM `user` WHERE user_id = " + userId + ";");
@@ -47,11 +49,12 @@ public class UserDB  extends MainDB{
         return null;
     }
 
-    private void createUser(String userId, String username, String password, LocalDateTime joinDate, String email
+    public void createUser(String userId, String username, String password, String email
             , String imageAddress, String phoneNumber, String gender, String bio){
+        String joinDate = LocalDate.now().toString() + "T"+ LocalTime.now().toString();
         try{
             Statement statement = connection.createStatement();
-            statement.execute("INSERT INTO `user` VALUES(user_id, username, password, join_date, email," +
+            statement.execute("INSERT INTO `user` VALUES(user_id, user_name, password, join_date, email," +
                     " image_address, phone_number, gender, bio) (" + userId + ", " + username + ", " + password + ", "
                     + joinDate + ", " + email + ", " + imageAddress + ", " + phoneNumber + ", " + gender + ", " + bio
                     + ") ;");
