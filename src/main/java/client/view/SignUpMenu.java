@@ -3,7 +3,6 @@ package client.view;
 import client.controller.SignUpController;
 import client.enums.Message;
 import client.model.User;
-import com.sun.xml.internal.ws.server.ServerRtException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -14,14 +13,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 
-import java.text.ParseException;
-
 public class SignUpMenu extends Menu {
     private static SignUpMenu instance = null;
     public TextField userIDTextBox;
     public TextField passwordTextBox;
     public TextField repeatedPasswordTextBox;
-
     public Label userIDLabel;
     public Label passwordLabel;
     public Label repeatedPasswordLabel;
@@ -35,6 +31,7 @@ public class SignUpMenu extends Menu {
     public Label phoneNumberLabel;
     public TextField phoneNumberTextBox;
     public TextField usernameTextBox;
+    public Label usernameLabel;
     private SignUpController signUpController = SignUpController.getInstance();
     public static Scene scene;
     private String address;
@@ -112,7 +109,7 @@ public class SignUpMenu extends Menu {
             runScene2();
             return;
         }
-        if(message == Message.EMPTY_USERNAME || message == Message.USERNAME_EXIST)
+        if(message == Message.EMPTY_USERID|| message == Message.USERID_EXIST)
             userIDLabel.setText(message.toString());
         if(message == Message.MISMATCH_PASSWORD || message == Message.EMPTY_REPEATED_PASSWORD)
             repeatedPasswordLabel.setText(message.toString());
@@ -125,6 +122,10 @@ public class SignUpMenu extends Menu {
         Message message = signUpController.handleSignUpScene2(username, gender, address, user);
         if(message == Message.SUCCESS)
             runSignInWithEmail();
+        else
+        {
+            usernameLabel.setText(message.toString());
+        }
     }
     public void logInMenu(ActionEvent event) {
        LoginMenu.getInstance().run();

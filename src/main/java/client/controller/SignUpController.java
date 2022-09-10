@@ -3,8 +3,6 @@ package client.controller;
 import client.enums.Message;
 import client.model.User;
 
-import java.lang.ref.PhantomReference;
-
 public class SignUpController {
     private static SignUpController instance;
     private static void setSignUpController(SignUpController signUpController){
@@ -21,18 +19,18 @@ public class SignUpController {
     }
     public Message handleSignUpScene1(String userID, String password, String repeatedPassword, User user) {
         if (userID.isEmpty())
-            return Message.EMPTY_USERNAME;
+            return Message.EMPTY_USERID;
         if (password.isEmpty())
             return Message.EMPTY_PASSWORD;
         if (repeatedPassword.isEmpty())
             return Message.EMPTY_REPEATED_PASSWORD;
-        if (this.usernameExist(userID)){
-            return Message.USERNAME_EXIST;
+        if (this.userIDExist(userID)){
+            return Message.USERID_EXIST;
         }
         Message message = this.validatePassword(password, repeatedPassword);
         if (message  != Message.SUCCESS)
             return message;
-        user.setUsername(userID);
+        user.setUserId(userID);
         user.setPassword(password);
         return Message.SUCCESS;
     }
@@ -50,11 +48,14 @@ public class SignUpController {
     public boolean isAlphaNumeric (String password){
         return password.matches("[a-zA-z0-9]+");
     }
-    private boolean usernameExist(String username){
+    private boolean userIDExist(String userID){
         //check with sql
         return false;
     }
     public Message handleSignUpScene2(String username,String gender, String address, User user) {
+        if (username.isEmpty())
+            return Message.EMPTY_USERNAME;
+        user.setUsername(username);
         user.setGender(gender);
         user.setImageAddress(address);
         return Message.SUCCESS;
