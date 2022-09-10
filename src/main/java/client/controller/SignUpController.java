@@ -19,20 +19,20 @@ public class SignUpController {
     private SignUpController(){
 
     }
-    public Message handleSignUpScene1(String username, String password, String repeatedPassword, User user) {
-        if (username.isEmpty())
+    public Message handleSignUpScene1(String userID, String password, String repeatedPassword, User user) {
+        if (userID.isEmpty())
             return Message.EMPTY_USERNAME;
         if (password.isEmpty())
             return Message.EMPTY_PASSWORD;
         if (repeatedPassword.isEmpty())
             return Message.EMPTY_REPEATED_PASSWORD;
-        if (this.usernameExist(username)){
+        if (this.usernameExist(userID)){
             return Message.USERNAME_EXIST;
         }
         Message message = this.validatePassword(password, repeatedPassword);
         if (message  != Message.SUCCESS)
             return message;
-        user.setUsername(username);
+        user.setUsername(userID);
         user.setPassword(password);
         return Message.SUCCESS;
     }
@@ -54,7 +54,7 @@ public class SignUpController {
         //check with sql
         return false;
     }
-    public Message handleSignUpScene2(String gender, String address, User user) {
+    public Message handleSignUpScene2(String username,String gender, String address, User user) {
         user.setGender(gender);
         user.setImageAddress(address);
         return Message.SUCCESS;

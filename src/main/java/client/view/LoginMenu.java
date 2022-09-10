@@ -11,10 +11,11 @@ import javafx.scene.control.TextField;
 public class LoginMenu extends Menu {
     private static LoginMenu instance;
     private static Scene scene;
-    public TextField userNameTextBox;
+    public TextField userIDTextBox;
     public TextField passWordTextBox;
     public Label passwordLabel;
-    public Label usernameLabel;
+    public Label userIDLabel;
+
     private static User user;
     private LoginController loginController = LoginController.getInstance();
     private static void setInstance(LoginMenu loginMenu){
@@ -46,15 +47,15 @@ public class LoginMenu extends Menu {
         if (user == null){
             user = new User();
         }
-        String username = userNameTextBox.getText();
+        String userID = userIDTextBox.getText();
         String password = passWordTextBox.getText();
 
-       Message message =  loginController.handleLogin(username, password, user);
+       Message message =  loginController.handleLogin(userID, password, user);
        if(message == Message.SUCCESS){
            //go to main menu
        }
        else if (message == Message.EMPTY_USERNAME || message == Message.NON_EXISTENT_USERNAME){
-           usernameLabel.setText(message.toString());
+           userIDLabel.setText(message.toString());
        }
        else {
            passwordLabel.setText(message.toString());

@@ -56,9 +56,9 @@
                   <Font size="35.0" />
                </font>
             </Text>
-            <TextField fx:id="userNameTextBox" layoutX="143.0" layoutY="188.0" prefHeight="42.0" prefWidth="204.0" promptText="UserName" />
+            <TextField fx:id="userIDTextBox" layoutX="143.0" layoutY="188.0" prefHeight="42.0" prefWidth="204.0" promptText="UserID" />
             <TextField fx:id="passWordTextBox" layoutX="143.0" layoutY="250.0" prefHeight="42.0" prefWidth="204.0" promptText="Password" />
-            <Text fill="WHITE" layoutX="47.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName">
+            <Text fill="WHITE" layoutX="47.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserID">
                <font>
                   <Font size="19.0" />
                </font>
@@ -73,7 +73,7 @@
             <Button fx:id="logInButton" layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="Log in" textFill="WHITE" />
             <Button fx:id="cancelButton" layoutX="54.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" prefHeight="35.0" prefWidth="296.0" style="-fx-background-color: #46474A;" text="Cancle" textFill="WHITE" />
             <Label fx:id="passwordLabel" layoutX="55.0" layoutY="233.0" prefHeight="17.0" prefWidth="292.0" textFill="#ff0707" />
-            <Label fx:id="usernameLabel" layoutX="52.0" layoutY="171.0" prefHeight="17.0" prefWidth="301.0" textFill="#ff0707" />
+            <Label fx:id="userIDLabel" layoutX="52.0" layoutY="171.0" prefHeight="17.0" prefWidth="301.0" textFill="#ff0707" />
             <RadioButton fx:id="changeTheme" layoutX="55.0" layoutY="445.0" mnemonicParsing="false" onAction="#setTheme" text="Change Theme" />
          </children>
       </AnchorPane>

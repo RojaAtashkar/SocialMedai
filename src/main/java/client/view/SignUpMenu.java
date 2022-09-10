@@ -18,10 +18,11 @@ import java.text.ParseException;
 
 public class SignUpMenu extends Menu {
     private static SignUpMenu instance = null;
-    public TextField userNameTextBox;
+    public TextField userIDTextBox;
     public TextField passwordTextBox;
     public TextField repeatedPasswordTextBox;
-    public Label userNameLabel;
+
+    public Label userIDLabel;
     public Label passwordLabel;
     public Label repeatedPasswordLabel;
     public CheckBox lightThemeCheckBox;
@@ -33,6 +34,7 @@ public class SignUpMenu extends Menu {
     public TextField emailTextBox;
     public Label phoneNumberLabel;
     public TextField phoneNumberTextBox;
+    public TextField usernameTextBox;
     private SignUpController signUpController = SignUpController.getInstance();
     public static Scene scene;
     private String address;
@@ -101,17 +103,17 @@ public class SignUpMenu extends Menu {
         }
     }
     public void nextScene2(ActionEvent event) {
-        String username = userNameTextBox.getText();
+        String userID = userIDTextBox.getText();
         String password = passwordTextBox.getText();
         String repeatedPassword = repeatedPasswordTextBox.getText();
-        Message message = signUpController.handleSignUpScene1(username, password, repeatedPassword, user);
+        Message message = signUpController.handleSignUpScene1(userID, password, repeatedPassword, user);
         System.out.println(message.toString());
         if(message == Message.SUCCESS){
             runScene2();
             return;
         }
         if(message == Message.EMPTY_USERNAME || message == Message.USERNAME_EXIST)
-            userNameTextBox.setText(message.toString());
+            userIDLabel.setText(message.toString());
         if(message == Message.MISMATCH_PASSWORD || message == Message.EMPTY_REPEATED_PASSWORD)
             repeatedPasswordLabel.setText(message.toString());
         else
@@ -119,7 +121,8 @@ public class SignUpMenu extends Menu {
     }
 
     public void nextSignInWithEmail(ActionEvent event) {
-        Message message = signUpController.handleSignUpScene2(gender, address, user);
+        String username = usernameTextBox.getText();
+        Message message = signUpController.handleSignUpScene2(username, gender, address, user);
         if(message == Message.SUCCESS)
             runSignInWithEmail();
     }
@@ -143,7 +146,7 @@ public class SignUpMenu extends Menu {
             phoneNumberLabel.setText(message.toString());
     }
     public void backScene1(ActionEvent event) {
-        userNameTextBox.setText(user.getUsername());
+        userIDTextBox.setText(user.getUsername());
         passwordTextBox.setText(user.getPassword());
         passwordTextBox.setText(user.getPassword());
         runScene1();
