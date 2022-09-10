@@ -11,7 +11,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+
+import java.io.File;
 
 public class SignUpMenu extends Menu {
     private static SignUpMenu instance = null;
@@ -45,8 +49,16 @@ public class SignUpMenu extends Menu {
         }
         return instance;
     }
+    @FXML
+    public void initialize(){
+        if(address == null)
+        setDefaultProfileImage(profileImageCircle);
+        else setProfileImage(profileImageCircle, address);
+    }
+
     public SignUpMenu() {
     }
+
     @Override
     public void run() {
       runScene1();
@@ -70,6 +82,7 @@ public class SignUpMenu extends Menu {
             Menu.stage.setTitle("SocialMedia");
             Menu.stage.setScene(scene);
             Menu.stage.show();
+
         } catch (Exception e) {
             System.out.println("Error while rendering scene2 in signUp Menu.");
             e.printStackTrace();
@@ -135,6 +148,9 @@ public class SignUpMenu extends Menu {
     }
     public void setProfileImage(ActionEvent event) {
          this.address = fileChooser(scene, "src/main/resources/assets/profiles/", "profileImage");
+         if(address != null){
+             setProfileImage(profileImageCircle, address);
+         }
     }
     public void signUpWithEmail(ActionEvent event) {
         String email = emailTextBox.getText();
@@ -154,6 +170,7 @@ public class SignUpMenu extends Menu {
     }
 
     public void backScene2(ActionEvent event) {
+        this.userIDTextBox.setText(user.getUsername());
         runScene2();
         femaleRadioButton.setSelected(false);
         if(user.getGender() == "F") femaleRadioButton.setSelected(true);
@@ -163,6 +180,7 @@ public class SignUpMenu extends Menu {
     }
 
     public void setGender(ActionEvent event) {
+        //To Do : rewrite it in a better way
         if (femaleRadioButton.isSelected()){
             gender = "F";
             femaleRadioButton.setSelected(true);
