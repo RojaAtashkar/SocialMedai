@@ -43,7 +43,7 @@ public abstract class  Menu {
              circle.setFill(new ImagePattern(image));
         }
         catch (Exception e){
-            e.printStackTrace();
+
         }
     }
     public void setProfileImage(Circle circle, String address){
@@ -52,7 +52,7 @@ public abstract class  Menu {
             circle.setFill(new ImagePattern(image));
         }
         catch (Exception e){
-            e.printStackTrace();
+
         }
     }
 }
