@@ -3,7 +3,12 @@ package client.view;
 import java.io.File;
 import java.text.ParseException;
 import java.util.Scanner;
+
+import client.enums.Message;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 public abstract class  Menu {
@@ -14,29 +19,40 @@ public abstract class  Menu {
     protected static Scanner getScanner() {
         return scanner;
     }
-
-    public String getInput(String Input) {
-        System.out.println(Input);
-        return Menu.getScanner().nextLine().trim();
-    }
-    public String getChoice() {
-        return Menu.getScanner().nextLine().trim();
-    }
     public abstract  void run();
-    public String fileChooser(Scene scene) {
+    public String fileChooser(Scene scene, String location, String title) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("photo");
-        fileChooser.setInitialDirectory(new File("C:\\Users\\tejan system\\Desktop\\social_media_mavenJavaFX\\social_media_mavenJavaFX\\src\\main\\resources\\pictures"));
+        fileChooser.setTitle(title);
+        fileChooser.setInitialDirectory(new File(location));
         File file = null;
         try {
             file = fileChooser.showOpenDialog(scene.getWindow());
-            System.out.println("");
         }
         catch (Exception e) {
-            System.out.println(e + " in catch");
+            e.printStackTrace();
+            System.out.println("Error in fileChooser " + title);
         }
-        System.out.println("file chooser : " + file.getAbsolutePath());
-
-        return file.getAbsolutePath();
+        if(file != null)
+            return file.getAbsolutePath();
+        else
+            return null;
+    }
+    public void setDefaultProfileImage(Circle circle){
+        try {
+            Image image = new Image(new File("src/main/resources/assets/icons/user.png").toURI().toString());
+             circle.setFill(new ImagePattern(image));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void setProfileImage(Circle circle, String address){
+        try {
+            Image image = new Image(new File(address).toURI().toString());
+            circle.setFill(new ImagePattern(image));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
