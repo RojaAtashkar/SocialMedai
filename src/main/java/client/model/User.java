@@ -1,11 +1,13 @@
 package client.model;
 
+import java.time.LocalDateTime;
+
 public class User {
     int id;
     String userId;
     String username;
     String password;
-    // datetime joinDate;
+    LocalDateTime joinDate;
     String email;
     String imageAddress;
     String phoneNumber;
