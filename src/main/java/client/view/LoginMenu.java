@@ -27,10 +27,11 @@ public class LoginMenu extends Menu {
         }
         return instance;
     }
+
     @Override
     public void run() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/social_media_javafx/loginMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/fxml/loginMenu.fxml"));
             scene = new Scene(fxmlLoader.load());
             Menu.stage.setTitle("SocialMedia");
             Menu.stage.setScene(scene);
@@ -52,7 +53,8 @@ public class LoginMenu extends Menu {
 
        Message message =  loginController.handleLogin(userID, password, user);
        if(message == Message.SUCCESS){
-           NewGroupMenu.getInstance().run();
+           Menu.loggedInUser = user;
+           DirectMenu.getInstance().run();
        }
        else if (message == Message.EMPTY_USERNAME || message == Message.NON_EXISTENT_USERID){
            userIDLabel.setText(message.toString());

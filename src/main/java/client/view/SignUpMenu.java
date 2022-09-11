@@ -66,7 +66,7 @@ public class SignUpMenu extends Menu {
     @FXML
     private void runScene1(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/social_media_javafx/signUpMenuScene1.fxml"));scene = new Scene(fxmlLoader.load());
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/fxml/signUpMenuScene1.fxml"));scene = new Scene(fxmlLoader.load());
             Menu.stage.setTitle("SocialMedia");
             Menu.stage.setScene(scene);
             Menu.stage.show();

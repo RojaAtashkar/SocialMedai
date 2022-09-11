@@ -30,7 +30,7 @@ public class NewGroupMenu extends Menu{
     @Override
     public void run() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/social_media_javafx/newGroupMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/fxml/newGroupMenu.fxml"));
             scene = new Scene(fxmlLoader.load());
             Menu.stage.setTitle("New Group Menu");
             Menu.stage.setScene(scene);
