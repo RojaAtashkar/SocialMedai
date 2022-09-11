@@ -32,10 +32,10 @@ public abstract class  Menu {
             e.printStackTrace();
             System.out.println("Error in fileChooser " + title);
         }
-        if(file != null)
+        if(file != null){
             return file.getAbsolutePath();
-        else
-            return null;
+        }
+        return null;
     }
     public void setDefaultProfileImage(Circle circle){
         try {

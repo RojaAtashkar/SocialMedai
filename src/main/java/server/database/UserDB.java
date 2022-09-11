@@ -1,7 +1,9 @@
 package server.database;
 
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -37,31 +39,43 @@ public class UserDB  extends MainDB{
     }
 
     public ResultSet getUserByUserId(String userId){
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM `user` WHERE user_id = " + userId + ";");
-            resultSet.next();
-            return resultSet;
+        ResultSet resultSet = null;
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE user_id=? ");
+            preparedStatement.setString(1, userId);
+            resultSet = preparedStatement.executeQuery();
+
         }catch (Exception e){
             System.out.println("User Search By User Id Failed!");
             e.printStackTrace();
         }
-        return null;
+        return resultSet;
     }
-
     public void createUser(String userId, String username, String password, String email
-            , String imageAddress, String phoneNumber, String gender, String bio){
-        String joinDate = LocalDate.now().toString() + "T"+ LocalTime.now().toString();
-        try{
-            Statement statement = connection.createStatement();
-            statement.execute("INSERT INTO `user` VALUES(user_id, user_name, password, join_date, email," +
-                    " image_address, phone_number, gender, bio) (" + userId + ", " + username + ", " + password + ", "
-                    + joinDate + ", " + email + ", " + imageAddress + ", " + phoneNumber + ", " + gender + ", " + bio
-                    + ") ;");
-        } catch(Exception e){
+          , String imageAddress, String phoneNumber, String gender, String bio){
+        try {
+            String joinDate = LocalDate.now().toString() + "T"+ LocalTime.now().toString();
+            String sql = "INSERT INTO `user` (user_id, user_name, password, join_date, email," +
+                    "  image_address, phone_number, gender, bio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStmt = connection.prepareStatement(sql);
+            preparedStmt.setString (1, userId);
+            preparedStmt.setString (2, username);
+            preparedStmt.setString (3, password);
+            preparedStmt.setString (4, joinDate);
+            preparedStmt.setString (5, email);
+            preparedStmt.setString (6, imageAddress);
+            preparedStmt.setString (7, phoneNumber);
+            preparedStmt.setString (8, gender);
+            preparedStmt.setString (9, bio);
+            preparedStmt.execute();
+        }
+        catch(Exception e){
             System.out.println("User Creation Failed!");
             e.printStackTrace();
         }
+
     }
+
 
 }

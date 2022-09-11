@@ -57,7 +57,7 @@ public class SignUpController  extends Controller{
             return Message.EMPTY_USERNAME;
         user.setUsername(username);
         user.setGender(gender);
-        user.setImageAddress(address);
+        user.setImageAddress(address.toString());
         return Message.SUCCESS;
     }
     public Message handleSignInWithEmail(String email, User user) {

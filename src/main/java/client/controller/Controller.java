@@ -9,9 +9,9 @@ public abstract class  Controller {
     protected ResultSet getUserByUserID(String userID){
         try {
             ResultSet resultSet = userDB.getUserByUserId(userID);
-            if(resultSet.next()){
+           while (resultSet != null && resultSet.next()){
                return resultSet;
-            }
+           }
             return null;
         }
         catch (Exception e){
