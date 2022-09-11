@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GroupSetting">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;"xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="client.view.NewGroupMenu">
    <top>
       <AnchorPane prefHeight="41.0" prefWidth="700.0" style="-fx-background-color: #46474A;" BorderPane.alignment="CENTER" />
    </top>
@@ -117,7 +117,7 @@
                         <Label fx:id="groupNameLabel" layoutX="53.0" layoutY="220.0" prefHeight="17.0" prefWidth="291.0" textFill="#f60101" />
                         <Label fx:id="groupIDLabel" layoutX="61.0" layoutY="276.0" prefHeight="17.0" prefWidth="291.0" textFill="#f60101" />
                         <Circle fx:id="profile" fill="#5b6269" layoutX="185.0" layoutY="122.0" radius="48.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button layoutX="60.0" layoutY="178.0" mnemonicParsing="false" onAction="#addProfileImage" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #ffffff;" text="add Profile image" />
+                        <Button layoutX="60.0" layoutY="178.0" mnemonicParsing="false" onAction="#addGroupProfileImage" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #ffffff;" text="add Profile image" />
                      </children>
                   </AnchorPane>
                </children>

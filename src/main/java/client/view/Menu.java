@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 import client.enums.Message;
+import client.model.User;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -15,7 +17,7 @@ public abstract class  Menu {
     public static Stage stage;
     public static boolean Theme = false;
     private static final Scanner scanner = new Scanner(System.in);
-
+    public static User loggedInUser = null;
     protected static Scanner getScanner() {
         return scanner;
     }
@@ -55,4 +57,5 @@ public abstract class  Menu {
 
         }
     }
+
 }

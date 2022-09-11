@@ -3,7 +3,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -15,14 +14,14 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"  fx:controller="client.view.">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="client.view.ChatMenu">
    <top>
       <AnchorPane prefHeight="41.0" prefWidth="700.0" style="-fx-background-color: #46474A;" BorderPane.alignment="CENTER" />
    </top>
    <center>
       <HBox prefHeight="460.0" prefWidth="681.0" style="-fx-background-color: #636566;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="bg" prefHeight="459.0" prefWidth="99.0" style="-fx-background-color: #46474A; -fx-background-radius: 5px;">
+            <AnchorPane fx:id="bg" prefHeight="459.0" prefWidth="99.0" style="-fx-background-color: #46474A;">
                <children>
                   <Button fx:id="timeLineButton" layoutX="16.0" layoutY="92.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="53.0" style="-fx-background-color: #46474A;">
                      <graphic>
@@ -63,9 +62,9 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="16.0" layoutY="291.0" mnemonicParsing="false" onAction="#groupSettingMenu" prefHeight="36.0" prefWidth="53.0" style="-fx-background-color: #46474A;">
+                  <Button layoutX="16.0" layoutY="291.0" mnemonicParsing="false" onAction="#newGroupMenu" prefHeight="36.0" prefWidth="53.0" style="-fx-background-color: #46474A;">
                      <graphic>
-                        <ImageView fx:id="groupSettingImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="newGroupImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../assets/icons8-add-user-group-man-man-24.png" />
                            </image>
@@ -97,21 +96,25 @@
                <children>
                   <HBox prefHeight="21.0" prefWidth="232.0">
                      <children>
-                        <ImageView fx:id="searchImageview" fitHeight="38.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../assets/icons8-search-50.png" />
-                           </image>
-                        </ImageView>
                         <TextField prefHeight="26.0" prefWidth="232.0" promptText="srearch" style="-fx-background-radius: 100px; -fx-background-color: #46474A;">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </TextField>
+                        <ImageView fx:id="searchImageview" fitHeight="38.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/icons8-search-50.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
+                  <ScrollPane prefHeight="422.0" prefWidth="217.0" style="-fx-background-color: #636566 #46474A;">
+                     <content>
+                        <VBox prefHeight="435.0" prefWidth="214.0" style="-fx-background-color: #636566;" />
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
-            <ScrollBar orientation="VERTICAL" prefHeight="459.0" prefWidth="0.0" />
             <AnchorPane prefHeight="459.0" prefWidth="372.0">
                <children>
                   <AnchorPane layoutX="-1.0" prefHeight="36.0" prefWidth="383.0" style="-fx-background-color: #FFFFFF;">
@@ -123,16 +126,16 @@
                         </Label>
                         <Label layoutX="93.0" layoutY="6.0" text="Online" />
                         <Circle fill="#1fff44" layoutX="89.0" layoutY="15.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button layoutX="306.0" layoutY="6.0" mnemonicParsing="false" onAction="#setting" prefHeight="25.0" prefWidth="29.0">
+                        <Button layoutX="306.0" layoutY="6.0" mnemonicParsing="false" onAction="#runChatSetting" prefHeight="25.0" prefWidth="29.0">
                            <graphic>
-                              <ImageView fx:id="settingImageView" fitHeight="16.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="chatSettingImageView" fitHeight="16.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="-3.0" layoutY="414.0" prefHeight="45.0" prefWidth="384.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <Button layoutY="2.0" mnemonicParsing="false" onAction="#sentVideo" prefHeight="39.0" prefWidth="31.0" style="-fx-background-color: #FFFFFF;">
+                        <Button layoutY="2.0" mnemonicParsing="false" onAction="#sendVideo" prefHeight="39.0" prefWidth="31.0" style="-fx-background-color: #FFFFFF;">
                            <graphic>
                               <ImageView fx:id="imoJImageView" fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -142,7 +145,7 @@
                            </graphic>
                         </Button>
                         <TextField fx:id="messageTextBox" layoutX="83.0" layoutY="7.0" prefHeight="32.0" prefWidth="243.0" promptText="type something to send..." />
-                        <Button layoutX="40.0" layoutY="2.0" mnemonicParsing="false" onAction="#openFileChooser" prefHeight="39.0" prefWidth="31.0" style="-fx-background-color: #FFFFFF;">
+                        <Button layoutX="40.0" layoutY="2.0" mnemonicParsing="false" onAction="#sendPicture" prefHeight="39.0" prefWidth="31.0" style="-fx-background-color: #FFFFFF;">
                            <graphic>
                               <ImageView fx:id="attachImageView" fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

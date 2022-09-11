@@ -52,7 +52,7 @@ public class LoginMenu extends Menu {
 
        Message message =  loginController.handleLogin(userID, password, user);
        if(message == Message.SUCCESS){
-           //go to main menu
+           NewGroupMenu.getInstance().run();
        }
        else if (message == Message.EMPTY_USERNAME || message == Message.NON_EXISTENT_USERID){
            userIDLabel.setText(message.toString());

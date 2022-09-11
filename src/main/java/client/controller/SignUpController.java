@@ -2,6 +2,7 @@ package client.controller;
 
 import client.enums.Message;
 import client.model.User;
+import client.view.Menu;
 
 import java.sql.ResultSet;
 
@@ -64,6 +65,7 @@ public class SignUpController  extends Controller{
         user.setEmail(email);
         userDB.createUser(user.getUserId(), user.getUsername(), user.getPassword(),user.getEmail(),user.getImageAddress(),
         user.getPhoneNumber(), user.getGender(), user.getBio());
+        Menu.loggedInUser = user;
         return Message.SUCCESS;
     }
 
@@ -72,6 +74,7 @@ public class SignUpController  extends Controller{
             return Message.NON_NUMERIC_PHONE_NUMBER;
         userDB.createUser(user.getUserId(), user.getUsername(), user.getPassword(),user.getEmail(),user.getImageAddress(),
                 user.getPhoneNumber(), user.getGender(), user.getBio());
+        Menu.loggedInUser = user;
         return Message.SUCCESS;
     }
     private boolean isNumeric(String number){

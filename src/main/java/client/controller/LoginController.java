@@ -35,9 +35,26 @@ public class LoginController extends Controller{
             System.out.println("Error while getting password with userID");
             e.printStackTrace();
         }
-        if(password != true_password)
+
+        if(!password.equals(true_password))
             return Message.MISMATCH_PASSWORD;
+        setUserInfo(resultSet, user);
         return Message.SUCCESS;
     }
+   private void setUserInfo(ResultSet resultSet, User user){
+        try {
+            user.setUsername(resultSet.getString("user_name"));
+            user.setUserId(resultSet.getString("user_i"));
+            user.setId(Integer.parseInt(resultSet.getString("id")));
+            user.setPassword(resultSet.getString("password"));
+            user.setEmail(resultSet.getString("email"));
+            user.setPhoneNumber(resultSet.getString("phone_number"));
+            user.setBio(resultSet.getString("bio"));
+            user.setGender(resultSet.getString("gender"));
+        }
+        catch (Exception e){
+            System.out.println("Error while setting user info in setUserInfo in loginController.");
+        }
 
+   }
 }
