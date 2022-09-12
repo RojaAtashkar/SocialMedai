@@ -58,23 +58,7 @@ public abstract class  Menu {
 
         }
     }
-    public void setBarIcons(ImageView timeLineImageView, ImageView exploreImageView, ImageView directImageView
-    , ImageView groupImageView, ImageView newGroupImageView, ImageView profileImageView,ImageView settingImageView){
-        Image timeLineImage = new Image("/assets/icons/timeLine.png");
-        timeLineImageView.setImage(timeLineImage);
-        Image exploreImage = new Image("/assets/icons/explore.png");
-        exploreImageView.setImage(exploreImage);
-        Image directImage = new Image("/assets/icons/direct.png");
-        directImageView.setImage(directImage);
-        Image groupImage = new Image("/assets/icons/group.png");
-        groupImageView.setImage(groupImage);
-        Image groupSettingImage = new Image("/assets/icons/groupSetting.png");
-        newGroupImageView.setImage(groupSettingImage);
-        Image profileImage = new Image("/assets/icons/profile.png");
-        profileImageView.setImage(profileImage);
-        Image settingImage = new Image("/assets/icons/setting.png");
-        settingImageView.setImage(settingImage);
-    }
+
     public void setProfileImage(Circle circle){
         try {
             //System.out.println(loggedInUser.getImageAddress());
