@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="client.view.ChatMenu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.ChatMenu">
    <top>
       <AnchorPane prefHeight="41.0" prefWidth="700.0" style="-fx-background-color: #46474A;" BorderPane.alignment="CENTER" />
    </top>
@@ -30,7 +30,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                            <image>
-                              <Image url="@../../../../assets/icons8-multiple-messages-24.png" />
+                              <Image url="@../assets/icons/timeLine.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -39,7 +39,7 @@
                      <graphic>
                         <ImageView fx:id="exploreImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-find-and-replace-24.png" />
+                              <Image url="@../assets/icons/explore.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -48,7 +48,7 @@
                      <graphic>
                         <ImageView fx:id="directImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-comments-50.png" />
+                              <Image url="@../assets/icons/direct.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -57,7 +57,7 @@
                      <graphic>
                         <ImageView fx:id="groupImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-people-24.png" />
+                              <Image url="@../assets/icons/group.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -66,7 +66,7 @@
                      <graphic>
                         <ImageView fx:id="newGroupImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-add-user-group-man-man-24.png" />
+                              <Image url="@../assets/icons/groupSetting.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -75,7 +75,7 @@
                      <graphic>
                         <ImageView fx:id="profileImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-person-24.png" />
+                              <Image url="@../assets/icons/profile.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -84,7 +84,7 @@
                      <graphic>
                         <ImageView fx:id="SettingImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-installing-updates-24.png" />
+                              <Image url="@../assets/icons/setting.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -103,14 +103,14 @@
                         </TextField>
                         <ImageView fx:id="searchImageview" fitHeight="38.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-search-50.png" />
+                              <Image url="@../assets/icons/search.png" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                   <ScrollPane prefHeight="422.0" prefWidth="217.0" style="-fx-background-color: #636566 #46474A;">
                      <content>
-                        <VBox prefHeight="435.0" prefWidth="214.0" style="-fx-background-color: #636566;" />
+                        <VBox fx:id="optionsVbox" prefHeight="435.0" prefWidth="214.0" style="-fx-background-color: #636566;" />
                      </content>
                   </ScrollPane>
                </children>
@@ -139,7 +139,7 @@
                            <graphic>
                               <ImageView fx:id="imoJImageView" fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../assets/icons8-lol-24.png" />
+                                    <Image url="@../assets/icons/imoJ.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -149,26 +149,20 @@
                            <graphic>
                               <ImageView fx:id="attachImageView" fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../assets/icons8-attach-50.png" />
+                                    <Image url="@../assets/icons/attach.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
                         <Button fx:id="sendTextMessage" layoutX="334.0" layoutY="2.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="31.0" style="-fx-background-color: #FFFFFF;">
                            <graphic>
-                              <ImageView fx:id="sendImageView" fitHeight="31.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="sendImageView" fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../assets/icons8-sent-24.png" />
+                                    <Image url="@../assets/icons/send.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="sendTextMessage1" layoutX="344.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendTextMessage" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #FFFFFF;" />
-                        <ImageView fx:id="sendImageView1" fitHeight="31.0" fitWidth="24.0" layoutX="348.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../assets/icons8-sent-24.png" />
-                           </image>
-                        </ImageView>
                      </children>
                   </AnchorPane>
                   <ScrollPane layoutX="-2.0" layoutY="36.0" prefHeight="380.0" prefWidth="384.0">
