@@ -32,7 +32,7 @@ public class DirectController extends  Controller{
 
     public ArrayList<User> getAllDirects() {
         ArrayList<User> users = new ArrayList<>();
-        ResultSet resultSet = directDB.
+        //ResultSet resultSet = directDB.
         return users;
     }
 }
