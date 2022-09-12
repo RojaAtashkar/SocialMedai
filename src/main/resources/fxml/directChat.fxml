@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.ChatMenu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #DADADA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.DirectMenu">
    <top>
       <AnchorPane prefHeight="41.0" prefWidth="700.0" style="-fx-background-color: #46474A;" BorderPane.alignment="CENTER" />
    </top>
@@ -62,7 +62,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="16.0" layoutY="291.0" mnemonicParsing="false" onAction="#newGroupMenu" prefHeight="36.0" prefWidth="53.0" style="-fx-background-color: #46474A;">
+                  <Button layoutX="16.0" layoutY="291.0" mnemonicParsing="false"  prefHeight="36.0" prefWidth="53.0" style="-fx-background-color: #46474A;">
                      <graphic>
                         <ImageView fx:id="newGroupImageView" fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -110,7 +110,25 @@
                   </HBox>
                   <ScrollPane prefHeight="422.0" prefWidth="217.0" style="-fx-background-color: #636566 #46474A;">
                      <content>
-                        <VBox fx:id="optionsVbox" prefHeight="435.0" prefWidth="214.0" style="-fx-background-color: #636566;" />
+                        <VBox fx:id="optionsVbox" prefHeight="435.0" prefWidth="214.0" style="-fx-background-color: #636566;">
+                           <children>
+                              <VBox prefHeight="69.0" prefWidth="214.0" style="-fx-background-color: #46474A;">
+                                 <children>
+                                    <Label text="Type UserID to find user!" textFill="#eddfdf">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="findUerIDTextField" promptText="userID" />
+                                    <Label fx:id="finUserIdLabel" prefHeight="17.0" prefWidth="193.0" textFill="#d71414">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#findUser" prefHeight="25.0" prefWidth="198.0" text="find" />
+                                 </children>
+                              </VBox>
+                           </children></VBox>
                      </content>
                   </ScrollPane>
                </children>

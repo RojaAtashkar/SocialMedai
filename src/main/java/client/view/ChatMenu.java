@@ -13,11 +13,14 @@ import javafx.scene.shape.Circle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public abstract class ChatMenu extends Menu  {
+public abstract class ChatMenu extends Menu {
     private static Scene scene;
-
-
-    @Override
-    public  abstract void run();
-
+    @FXML
+    public  abstract void runChatSetting(ActionEvent event);
+    @FXML
+    public abstract void sendVideo(ActionEvent event);
+    @FXML
+    public abstract void sendPicture(ActionEvent event);
+    @FXML
+    public abstract void sendTextMessage(ActionEvent event);
 }
