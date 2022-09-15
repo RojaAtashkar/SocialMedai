@@ -57,17 +57,51 @@ public class DirectDB extends MainDB{
             e.printStackTrace();
         }
     }
-    public ResultSet  getDirectByUserID(String userId){
+    public ResultSet  getDirectByID(String userId){
         ResultSet resultSet = null;
         try {
-            String sql = " SELECT * FROM user WHERE user_id IN (SELECT user1_id  FROM direct WHERE user1_id=?)";
-            PreparedStatement preparedStmt = connection.prepareStatement(sql);
+            String sql = " SELECT * FROM user WHERE id IN (SELECT user2_id  FROM direct WHERE user1_id=?)";
+            PreparedStatement preparedStmt = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
             preparedStmt.setString (1, userId);
-            preparedStmt.execute();
+            resultSet = preparedStmt.executeQuery();
         }
         catch(Exception e){
-            System.out.println("User Creation Failed!");
+            System.out.println("getting all directs Failed!");
             e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public ResultSet getDirectByUserIDs(String user1_id, String user2_id) {
+        ResultSet resultSet = null;
+        try {
+            String sql = " SELECT * FROM direct WHERE user1_id=? and user2_id=?";
+            PreparedStatement preparedStmt = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+            preparedStmt.setString (1, user1_id);
+            preparedStmt.setString(2, user2_id);
+            resultSet = preparedStmt.executeQuery();
+        }
+        catch(Exception e){
+            System.out.println("Error while searching for a direct with id1 and id2.");
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    public ResultSet getNumberOfTextMessages(){
+        ResultSet resultSet = null;
+        String sql = "SELECT COUNT(*) AS num " +
+                "FROM group_message " +
+                "WHERE type =?;";
+        try {
+            PreparedStatement preparedStmt = connection.prepareStatement(sql);
+            preparedStmt.setString (1, "T");
+            resultSet = preparedStmt.executeQuery();
+        }
+        catch (Exception e){
+            System.out.println("error in getNumber of textMessages.");
+          e.printStackTrace();
         }
         return resultSet;
     }

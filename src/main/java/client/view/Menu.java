@@ -61,7 +61,6 @@ public abstract class  Menu {
 
     public void setProfileImage(Circle circle){
         try {
-            //System.out.println(loggedInUser.getImageAddress());
             Image image = new Image(new File(loggedInUser.getImageAddress()).toURI().toString());
             circle.setFill(new ImagePattern(image));
         }

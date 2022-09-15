@@ -25,20 +25,25 @@ public class LoginController extends Controller{
             return Message.EMPTY_USERID;
         if(password.isEmpty())
             return Message.EMPTY_PASSWORD;
-        ResultSet resultSet = getUserByUserID(userID);
-        if( resultSet == null)
-            return Message.NON_EXISTENT_USERID;
+        ResultSet resultSet = userDB.getUserByUserId(userID);
         try {
-            true_password = resultSet.getString("password");
+            if (resultSet != null && resultSet.next()){
+                true_password = resultSet.getString("password");
+                resultSet.previous();
+            }
+            else {
+                return Message.NON_EXISTENT_USERID;
+            }
         }
         catch (Exception e){
             System.out.println("Error while getting password with userID");
             e.printStackTrace();
         }
-
         if(!password.equals(true_password))
             return Message.MISMATCH_PASSWORD;
         setUserInfo(resultSet, user);
+
+
         return Message.SUCCESS;
     }
 

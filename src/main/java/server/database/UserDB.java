@@ -42,7 +42,8 @@ public class UserDB  extends MainDB{
         ResultSet resultSet = null;
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE user_id=? ");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE user_id=? ", ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
             preparedStatement.setString(1, userId);
             resultSet = preparedStatement.executeQuery();
 
@@ -58,7 +59,8 @@ public class UserDB  extends MainDB{
             String joinDate = LocalDate.now().toString() + "T"+ LocalTime.now().toString();
             String sql = "INSERT INTO `user` (user_id, user_name, password, join_date, email," +
                     "  image_address, phone_number, gender, bio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement preparedStmt = connection.prepareStatement(sql);
+            PreparedStatement preparedStmt = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
             preparedStmt.setString (1, userId);
             preparedStmt.setString (2, username);
             preparedStmt.setString (3, password);

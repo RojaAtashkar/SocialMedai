@@ -12,7 +12,8 @@ public enum Message  {
     NON_ALPHANUMERIC_PASSWORD("Passwords must contain both number and character."),
     NO_FILE("No file has been chosen."),
     NON_NUMERIC_PHONE_NUMBER("Phone Number is not numeric"),
-    NON_EXISTENT_USERID("Userid does not exist."), EMPTY_USERID("User Id is Empty");
+    NON_EXISTENT_USERID("Userid does not exist."), EMPTY_USERID("User Id is Empty"),
+    ANOTHER_USERID("Enter your friends userId"), DIRECT_EXISTS("Direct already exists."), ERROR("ERROR");
     private String message;
     Message(String message)
     {
