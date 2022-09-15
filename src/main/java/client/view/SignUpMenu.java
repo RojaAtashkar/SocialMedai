@@ -77,7 +77,7 @@ public class SignUpMenu extends Menu {
     }
     public void runScene2() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/social_media_javafx/signUpMenuScene2.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/fxml/signUpMenuScene2.fxml"));
             scene = new Scene(fxmlLoader.load());
             Menu.stage.setTitle("SocialMedia");
             Menu.stage.setScene(scene);
@@ -90,7 +90,7 @@ public class SignUpMenu extends Menu {
     }
     public void runSignUpWithPhoneNumber() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/social_media_javafx/SignUpPhoneNumber.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/fxml/SignUpPhoneNumber.fxml"));
             scene = new Scene(fxmlLoader.load());
             Menu.stage.setTitle("SocialMedia");
             Menu.stage.setScene(scene);
@@ -102,7 +102,7 @@ public class SignUpMenu extends Menu {
     }
     public void runSignInWithEmail() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/social_media_javafx/signUpEmail.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginMenu.class.getResource("/fxml/signUpEmail.fxml"));
             scene = new Scene(fxmlLoader.load());
             Menu.stage.setTitle("SocialMedia");
             Menu.stage.setScene(scene);

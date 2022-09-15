@@ -60,10 +60,9 @@ public class DirectDB extends MainDB{
     public ResultSet  getDirectByUserID(String userId){
         ResultSet resultSet = null;
         try {
-            String sql = "SELECT *  FROM direct WHERE user1_id= ? or user2_id =?";
+            String sql = " SELECT * FROM user WHERE user_id IN (SELECT user1_id  FROM direct WHERE user1_id=?)";
             PreparedStatement preparedStmt = connection.prepareStatement(sql);
             preparedStmt.setString (1, userId);
-            preparedStmt.setString (2, userId);
             preparedStmt.execute();
         }
         catch(Exception e){
